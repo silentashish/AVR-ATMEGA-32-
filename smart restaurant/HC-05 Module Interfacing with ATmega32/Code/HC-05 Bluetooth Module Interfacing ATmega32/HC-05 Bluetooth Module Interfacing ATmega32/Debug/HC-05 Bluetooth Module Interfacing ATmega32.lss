@@ -1,0 +1,271 @@
+
+HC-05 Bluetooth Module Interfacing ATmega32.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000013e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000001e  00800060  0000013e  000001b2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .stab         000006cc  00000000  00000000  000001d0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  0000089c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000080  00000000  00000000  00000928  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000004fc  00000000  00000000  000009a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000017a  00000000  00000000  00000ea4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000379  00000000  00000000  0000101e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000080  00000000  00000000  00001398  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001c0  00000000  00000000  00001418  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000000a1  00000000  00000000  000015d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ee e3       	ldi	r30, 0x3E	; 62
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	ae 37       	cpi	r26, 0x7E	; 126
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	ae e7       	ldi	r26, 0x7E	; 126
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	ae 37       	cpi	r26, 0x7E	; 126
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 72 00 	call	0xe4	; 0xe4 <main>
+  8a:	0c 94 9d 00 	jmp	0x13a	; 0x13a <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <usart_init>:
+
+
+/*USART Function Definitions*/
+void usart_init()
+{
+	UBRRH = 0;
+  92:	10 bc       	out	0x20, r1	; 32
+	UBRRL =51;
+  94:	83 e3       	ldi	r24, 0x33	; 51
+  96:	89 b9       	out	0x09, r24	; 9
+	UCSRB|= (1<<RXEN)|(1<<TXEN);
+  98:	8a b1       	in	r24, 0x0a	; 10
+  9a:	88 61       	ori	r24, 0x18	; 24
+  9c:	8a b9       	out	0x0a, r24	; 10
+	UCSRC |= (1 << URSEL)|(3<<UCSZ0);
+  9e:	80 b5       	in	r24, 0x20	; 32
+  a0:	86 68       	ori	r24, 0x86	; 134
+  a2:	80 bd       	out	0x20, r24	; 32
+}
+  a4:	08 95       	ret
+
+000000a6 <usart_data_transmit>:
+
+
+void usart_data_transmit(unsigned char data )
+{
+	while ( !( UCSRA & (1<<UDRE)) )
+  a6:	5d 9b       	sbis	0x0b, 5	; 11
+  a8:	fe cf       	rjmp	.-4      	; 0xa6 <usart_data_transmit>
+	;
+	UDR = data;
+  aa:	8c b9       	out	0x0c, r24	; 12
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ac:	8f ec       	ldi	r24, 0xCF	; 207
+  ae:	97 e0       	ldi	r25, 0x07	; 7
+  b0:	01 97       	sbiw	r24, 0x01	; 1
+  b2:	f1 f7       	brne	.-4      	; 0xb0 <usart_data_transmit+0xa>
+  b4:	00 c0       	rjmp	.+0      	; 0xb6 <usart_data_transmit+0x10>
+  b6:	00 00       	nop
+	_delay_ms(1);
+}
+  b8:	08 95       	ret
+
+000000ba <usart_string_transmit>:
+
+void usart_string_transmit(char *string)
+{
+  ba:	cf 93       	push	r28
+  bc:	df 93       	push	r29
+  be:	ec 01       	movw	r28, r24
+	while(*string)
+  c0:	88 81       	ld	r24, Y
+  c2:	88 23       	and	r24, r24
+  c4:	31 f0       	breq	.+12     	; 0xd2 <usart_string_transmit+0x18>
+	;
+	UDR = data;
+	_delay_ms(1);
+}
+
+void usart_string_transmit(char *string)
+  c6:	21 96       	adiw	r28, 0x01	; 1
+{
+	while(*string)
+	{
+		usart_data_transmit(*string++);
+  c8:	0e 94 53 00 	call	0xa6	; 0xa6 <usart_data_transmit>
+	_delay_ms(1);
+}
+
+void usart_string_transmit(char *string)
+{
+	while(*string)
+  cc:	89 91       	ld	r24, Y+
+  ce:	88 23       	and	r24, r24
+  d0:	d9 f7       	brne	.-10     	; 0xc8 <usart_string_transmit+0xe>
+	{
+		usart_data_transmit(*string++);
+	}
+}
+  d2:	df 91       	pop	r29
+  d4:	cf 91       	pop	r28
+  d6:	08 95       	ret
+
+000000d8 <hc_05_bluetooth_transmit_byte>:
+
+
+/*HC-05 Bluetooth Function Definitions*/
+void hc_05_bluetooth_transmit_byte(char data_byte)
+{
+	usart_data_transmit(data_byte);
+  d8:	0e 94 53 00 	call	0xa6	; 0xa6 <usart_data_transmit>
+}
+  dc:	08 95       	ret
+
+000000de <hc_05_bluetooth_transmit_string>:
+
+void hc_05_bluetooth_transmit_string(char *transmit_string)
+{
+	usart_string_transmit(transmit_string);
+  de:	0e 94 5d 00 	call	0xba	; 0xba <usart_string_transmit>
+}
+  e2:	08 95       	ret
+
+000000e4 <main>:
+  e4:	8f ef       	ldi	r24, 0xFF	; 255
+  e6:	94 e3       	ldi	r25, 0x34	; 52
+  e8:	ac e0       	ldi	r26, 0x0C	; 12
+  ea:	81 50       	subi	r24, 0x01	; 1
+  ec:	90 40       	sbci	r25, 0x00	; 0
+  ee:	a0 40       	sbci	r26, 0x00	; 0
+  f0:	e1 f7       	brne	.-8      	; 0xea <main+0x6>
+  f2:	00 c0       	rjmp	.+0      	; 0xf4 <main+0x10>
+  f4:	00 00       	nop
+  f6:	8f ef       	ldi	r24, 0xFF	; 255
+  f8:	94 e3       	ldi	r25, 0x34	; 52
+  fa:	ac e0       	ldi	r26, 0x0C	; 12
+  fc:	81 50       	subi	r24, 0x01	; 1
+  fe:	90 40       	sbci	r25, 0x00	; 0
+ 100:	a0 40       	sbci	r26, 0x00	; 0
+ 102:	e1 f7       	brne	.-8      	; 0xfc <main+0x18>
+ 104:	00 c0       	rjmp	.+0      	; 0x106 <main+0x22>
+ 106:	00 00       	nop
+{
+	_delay_ms(500);
+	_delay_ms(500);
+	/*Delay of 1s*/
+	
+	usart_init();
+ 108:	0e 94 49 00 	call	0x92	; 0x92 <usart_init>
+	/*USART initialization*/
+	
+	hc_05_bluetooth_transmit_string("ABLab Solutions");
+ 10c:	80 e6       	ldi	r24, 0x60	; 96
+ 10e:	90 e0       	ldi	r25, 0x00	; 0
+ 110:	0e 94 6f 00 	call	0xde	; 0xde <hc_05_bluetooth_transmit_string>
+	/*Transmits a string to Bluetooth Module*/
+
+	hc_05_bluetooth_transmit_byte(0x0d);
+ 114:	8d e0       	ldi	r24, 0x0D	; 13
+ 116:	0e 94 6c 00 	call	0xd8	; 0xd8 <hc_05_bluetooth_transmit_byte>
+	/*Transmits Carriage return to Bluetooth Module*/
+	
+	hc_05_bluetooth_transmit_byte(0x0a);
+ 11a:	8a e0       	ldi	r24, 0x0A	; 10
+ 11c:	0e 94 6c 00 	call	0xd8	; 0xd8 <hc_05_bluetooth_transmit_byte>
+	/*Transmits New Line to Bluetooth Module for new line*/
+
+	hc_05_bluetooth_transmit_string("www.ablab.in");
+ 120:	80 e7       	ldi	r24, 0x70	; 112
+ 122:	90 e0       	ldi	r25, 0x00	; 0
+ 124:	0e 94 6f 00 	call	0xde	; 0xde <hc_05_bluetooth_transmit_string>
+	/*Transmits a string to Bluetooth Module*/
+
+	hc_05_bluetooth_transmit_byte(0x0d);
+ 128:	8d e0       	ldi	r24, 0x0D	; 13
+ 12a:	0e 94 6c 00 	call	0xd8	; 0xd8 <hc_05_bluetooth_transmit_byte>
+	/*Transmits Carriage return to Bluetooth Module*/
+	
+	hc_05_bluetooth_transmit_byte(0x0a);
+ 12e:	8a e0       	ldi	r24, 0x0A	; 10
+ 130:	0e 94 6c 00 	call	0xd8	; 0xd8 <hc_05_bluetooth_transmit_byte>
+	/*Transmits New Line to Bluetooth Module for new line*/
+}
+ 134:	80 e0       	ldi	r24, 0x00	; 0
+ 136:	90 e0       	ldi	r25, 0x00	; 0
+ 138:	08 95       	ret
+
+0000013a <_exit>:
+ 13a:	f8 94       	cli
+
+0000013c <__stop_program>:
+ 13c:	ff cf       	rjmp	.-2      	; 0x13c <__stop_program>
